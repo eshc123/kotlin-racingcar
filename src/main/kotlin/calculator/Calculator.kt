@@ -2,7 +2,7 @@ package calculator
 
 import calculator.Operator.Companion.toOperator
 
-class Calculator {
+object Calculator {
     fun calculate(input: String?): Double {
         if (input.isNullOrBlank()) throw IllegalArgumentException("계산할 수 없는 입력값입니다.")
 
