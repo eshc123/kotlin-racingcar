@@ -4,7 +4,7 @@ import calculator.Operator.Companion.operate
 
 object Calculator {
     fun calculate(input: String?): Double {
-        if (input.isNullOrBlank()) throw IllegalArgumentException("계산할 수 없는 입력값입니다.")
+        require(!input.isNullOrBlank()) { "계산할 수 없는 입력값입니다." }
 
         val formula = validateFormula(input)
 
