@@ -1,5 +1,7 @@
 package calculator
 
+import calculator.Operator.Companion.operate
+
 object Calculator {
     fun calculate(input: String?): Double {
         if (input.isNullOrBlank()) throw IllegalArgumentException("계산할 수 없는 입력값입니다.")
@@ -23,15 +25,4 @@ object Calculator {
             return list
         }
     }
-
-    private fun Double.operate(
-        other: Double,
-        operator: Operator,
-    ): Double =
-        when (operator) {
-            Operator.PLUS -> this + other
-            Operator.MINUS -> this - other
-            Operator.MULTIPLY -> this * other
-            Operator.DIVIDE -> this / other
-        }
 }
