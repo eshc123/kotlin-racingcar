@@ -23,7 +23,10 @@ enum class Operator(
                 PLUS -> this + other
                 MINUS -> this - other
                 MULTIPLY -> this * other
-                DIVIDE -> this / other
+                DIVIDE -> {
+                    require(other != 0.0) { "0으로 나눌 수 없습니다." }
+                    this / other
+                }
             }
     }
 }

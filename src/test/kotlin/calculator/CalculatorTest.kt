@@ -49,4 +49,12 @@ class CalculatorTest {
         val actual = Calculator.calculate("20 + 29 * 48 - 201 / 4")
         assertThat(actual).isEqualTo(537.75)
     }
+
+    @Test
+    fun `사칙 연산 중 0으로 나누는 경우 IllegalArgumentException를 던진다`() {
+        assertThatThrownBy {
+            Calculator.calculate("20 + 29 * 48 - 201 / 0")
+        }.isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessage("0으로 나눌 수 없습니다.")
+    }
 }
