@@ -10,9 +10,9 @@ enum class Operator(
     ;
 
     companion object {
-        fun String.toOperator(): Operator =
+        fun from(value: String): Operator =
             entries.find {
-                it.symbol == this
+                it.symbol == value
             } ?: throw IllegalArgumentException("사칙연산 기호가 아닙니다.")
     }
 }

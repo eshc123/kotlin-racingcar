@@ -1,7 +1,5 @@
 package calculator
 
-import calculator.Operator.Companion.toOperator
-
 object Calculator {
     fun calculate(input: String?): Double {
         if (input.isNullOrBlank()) throw IllegalArgumentException("계산할 수 없는 입력값입니다.")
@@ -13,9 +11,8 @@ object Calculator {
 
     private fun compute(formula: List<String>): Double {
         var result = formula.firstOrNull()?.toDouble() ?: throw NumberFormatException()
-
         for (i in 1..formula.lastIndex step 2) {
-            result = result.operate(formula[i + 1].toDouble(), formula[i].toOperator())
+            result = result.operate(formula[i + 1].toDouble(), Operator.from(formula[i]))
         }
         return result
     }
