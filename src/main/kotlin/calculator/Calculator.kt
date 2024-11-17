@@ -6,14 +6,14 @@ object Calculator {
     private const val FORMULA_DELIMITER = " "
     private const val FORMULA_OPERATOR_INTERVAL = 2
 
-    fun calculate(input: String?): Double {
-        require(!input.isNullOrBlank()) { "계산할 수 없는 입력값입니다." }
+    fun calculate(formula: String?): Double {
+        require(!formula.isNullOrBlank()) { "계산할 수 없는 입력값입니다." }
 
-        val formula = parseFormula(input)
+        val symbols = parseFormula(formula)
 
-        require(validateFormula(formula)) { "올바른 수식이 아닙니다." }
+        require(validateFormula(symbols)) { "올바른 수식이 아닙니다." }
 
-        return compute(formula)
+        return compute(symbols)
     }
 
     private fun compute(formula: List<String>): Double {
