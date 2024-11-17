@@ -13,7 +13,7 @@ enum class Operator(
         fun from(value: String): Operator =
             entries.find {
                 it.symbol == value
-            } ?: throw IllegalArgumentException("사칙연산 기호가 아닙니다.")
+            } ?: throw IllegalArgumentException("\'${value}\'은(는) 사칙연산 기호가 아닙니다.")
 
         fun Double.operate(
             other: Double,
