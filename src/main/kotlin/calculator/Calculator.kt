@@ -1,7 +1,5 @@
 package calculator
 
-import calculator.Operator.Companion.operate
-
 object Calculator {
     private const val FORMULA_DELIMITER = " "
     private const val FORMULA_OPERATOR_INTERVAL = 2
@@ -19,7 +17,7 @@ object Calculator {
     private fun compute(formula: List<String>): Double {
         var result = formula.firstOrNull()?.toDouble() ?: throw NumberFormatException()
         for (i in 1..formula.lastIndex step FORMULA_OPERATOR_INTERVAL) {
-            result = result.operate(formula[i + 1].toDouble(), Operator.from(formula[i]))
+            result = Operator.from(formula[i]).operate(result, formula[i + 1].toDouble())
         }
         return result
     }
