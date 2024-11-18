@@ -8,7 +8,7 @@ class CarTest {
     @Test
     fun `Car는 전진할 수 있는 조건일 때 한 칸 전진할 수 있다`() {
         val car = Car(position = 1)
-        val actual = car.updateCarPosition(true)
+        val actual = car.moveIfPossible(true)
         assertTrue(actual.position == 2)
     }
 }

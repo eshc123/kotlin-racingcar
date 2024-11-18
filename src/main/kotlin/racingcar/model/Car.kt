@@ -3,7 +3,7 @@ package racingcar.model
 data class Car(
     val position: Int = INITIAL_POSITION,
 ) {
-    fun updateCarPosition(isAdvancePossible: Boolean): Car =
+    fun moveIfPossible(isAdvancePossible: Boolean): Car =
         if (isAdvancePossible) {
             copy(position = this.position + 1)
         } else {
