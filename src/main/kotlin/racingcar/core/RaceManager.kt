@@ -13,13 +13,13 @@ class RaceManager(
         printResultTitle()
 
         repeat(moveCount) {
-            cars = getUpdatedCarList(cars)
+            cars = getMovedCars(cars)
             ResultView.printCarPositionResults(cars.map { CAR_POSITION_STEP.repeat(it.position) })
         }
     }
 
-    private fun getUpdatedCarList(carList: List<Car>): List<Car> =
-        carList.map {
+    private fun getMovedCars(cars: List<Car>): List<Car> =
+        cars.map {
             it.moveIfPossible(RaceConditionChecker.isAdvancePossible())
         }
 
