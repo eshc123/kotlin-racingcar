@@ -37,3 +37,17 @@
    1. InputView
    2. ResultView
 4. 테스트 코드 작성
+
+### Feedback - 1
+1. getRandomNumber 수정 혹은 삭제
+2. randomNumberRange 상수 네이밍 컨벤션 적용
+3. InputView.inputValues() 분리
+4. RaceManager의 initCarList 분리
+5. carList 네이밍 수정
+6. 람다 변수 네이밍 수정
+7. Car INITIAL_POSITION private 사용
+8. InputView의 getNumber - requireNotNull 사용
+9. RaceManager "-" 상수로 추출
+10. Car의 updateCarPosition 네이밍 변경
+11. CarTest - 전진하지 않는 케이스의 테스트 코드 추가
+12. RaceManager 테스트하기 쉬운 코드 고민 및 수정
