@@ -7,7 +7,7 @@ import racingcar.ui.ResultView.printResultTitle
 class RaceManager(
     private val carCount: Int,
     private val moveCount: Int,
-    private var carList: List<Car> = initCarList(carCount),
+    private var carList: List<Car> = Car.generateCars(carCount),
 ) {
     fun startRacing() {
         printResultTitle()
@@ -22,8 +22,4 @@ class RaceManager(
         carList.map { car ->
             car.updateCarPosition(RaceConditionChecker.isAdvancePossible())
         }
-
-    companion object {
-        private fun initCarList(carCount: Int) = List(carCount) { Car() }
-    }
 }

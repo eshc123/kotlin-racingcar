@@ -12,5 +12,7 @@ data class Car(
 
     companion object {
         const val INITIAL_POSITION = 0
+
+        fun generateCars(carCount: Int) = List(carCount) { Car() }
     }
 }
