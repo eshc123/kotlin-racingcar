@@ -19,7 +19,7 @@ class RaceManager(
     }
 
     private fun getUpdatedCarList(carList: List<Car>): List<Car> =
-        carList.map { car ->
-            car.updateCarPosition(RaceConditionChecker.isAdvancePossible())
+        carList.map {
+            it.updateCarPosition(RaceConditionChecker.isAdvancePossible())
         }
 }
