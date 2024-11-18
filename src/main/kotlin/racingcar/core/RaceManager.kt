@@ -14,7 +14,7 @@ class RaceManager(
 
         repeat(moveCount) {
             cars = getUpdatedCarList(cars)
-            ResultView.printCarPositionResults(cars.map { "-".repeat(it.position) })
+            ResultView.printCarPositionResults(cars.map { CAR_POSITION_STEP.repeat(it.position) })
         }
     }
 
@@ -22,4 +22,8 @@ class RaceManager(
         carList.map {
             it.updateCarPosition(RaceConditionChecker.isAdvancePossible())
         }
+
+    companion object {
+        private const val CAR_POSITION_STEP = "-"
+    }
 }
