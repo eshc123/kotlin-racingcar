@@ -7,14 +7,14 @@ import racingcar.ui.ResultView.printResultTitle
 class RaceManager(
     private val carCount: Int,
     private val moveCount: Int,
-    private var carList: List<Car> = Car.generateCars(carCount),
+    private var cars: List<Car> = Car.generateCars(carCount),
 ) {
     fun startRacing() {
         printResultTitle()
 
         repeat(moveCount) {
-            carList = getUpdatedCarList(carList)
-            ResultView.printCarPositionResults(carList.map { "-".repeat(it.position) })
+            cars = getUpdatedCarList(cars)
+            ResultView.printCarPositionResults(cars.map { "-".repeat(it.position) })
         }
     }
 
