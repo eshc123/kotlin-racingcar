@@ -13,13 +13,15 @@ class RaceManager(
         printResultTitle()
 
         repeat(moveCount) {
-            carList =
-                carList.map { car ->
-                    car.updateCarPosition(RaceConditionChecker.isAdvancePossible())
-                }
+            carList = getUpdatedCarList(carList)
             ResultView.printCarPositionResults(carList.map { "-".repeat(it.position) })
         }
     }
+
+    private fun getUpdatedCarList(carList: List<Car>): List<Car> =
+        carList.map { car ->
+            car.updateCarPosition(RaceConditionChecker.isAdvancePossible())
+        }
 
     companion object {
         private fun initCarList(carCount: Int) = List(carCount) { Car() }

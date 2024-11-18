@@ -7,7 +7,7 @@ object RaceConditionChecker {
 
     private val randomNumberRange = MINIMUM_RANDOM_NUMBER..MAXIMUM_RANDOM_NUMBER
 
-    private fun getRandomNumber(): Int = randomNumberRange.random()
+    internal fun getRandomNumber(): Int = randomNumberRange.random()
 
     fun isAdvancePossible(): Boolean = getRandomNumber() >= MINIMUM_ADVANCE_NUMBER
 }
