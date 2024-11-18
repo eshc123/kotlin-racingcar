@@ -10,7 +10,8 @@ fun main() {
 
 class RacingCarGame {
     fun run() {
-        val (carCount, moveCount) = InputView.inputValues()
+        val carCount = InputView.inputCarCount()
+        val moveCount = InputView.inputMoveCount()
 
         val raceManager = RaceManager(carCount, moveCount)
 
