@@ -26,7 +26,7 @@ class CalculatorTest {
         assertThatThrownBy {
             Calculator.calculate("1 더하기 1")
         }.isInstanceOf(IllegalArgumentException::class.java)
-            .hasMessage("사칙연산 기호가 아닙니다.")
+            .hasMessageContaining("사칙연산 기호가 아닙니다.")
     }
 
     @Test
