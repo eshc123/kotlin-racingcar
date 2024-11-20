@@ -1,6 +1,6 @@
 package racingcar
 
-import racingcar.core.RaceManager
+import racingcar.domain.RaceManager
 import racingcar.ui.InputView
 
 fun main() {

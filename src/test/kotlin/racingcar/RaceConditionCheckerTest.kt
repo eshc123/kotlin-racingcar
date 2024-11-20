@@ -2,7 +2,7 @@ package racingcar
 
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-import racingcar.core.RaceConditionChecker
+import racingcar.domain.RaceConditionChecker
 
 class RaceConditionCheckerTest {
     @Test

@@ -1,4 +1,4 @@
-package racingcar.core
+package racingcar.domain
 
 object RaceConditionChecker {
     private const val MINIMUM_ADVANCE_NUMBER = 4

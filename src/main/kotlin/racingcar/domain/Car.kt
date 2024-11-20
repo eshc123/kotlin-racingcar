@@ -1,4 +1,4 @@
-package racingcar.model
+package racingcar.domain
 
 data class Car(
     val position: Int = INITIAL_POSITION,

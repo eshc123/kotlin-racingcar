@@ -1,6 +1,5 @@
-package racingcar.core
+package racingcar.domain
 
-import racingcar.model.Car
 import racingcar.ui.ResultView
 import racingcar.ui.ResultView.printResultTitle
 
