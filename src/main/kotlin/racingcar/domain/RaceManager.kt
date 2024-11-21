@@ -4,9 +4,8 @@ import racingcar.ui.ResultView
 import racingcar.ui.ResultView.printResultTitle
 
 class RaceManager(
-    private val carCount: Int,
     private val moveCount: Int,
-    private var cars: List<Car> = Car.generateCars(carCount),
+    private var cars: List<Car>,
 ) {
     fun startRacing() {
         printResultTitle()

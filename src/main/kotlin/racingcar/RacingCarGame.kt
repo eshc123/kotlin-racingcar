@@ -1,5 +1,6 @@
 package racingcar
 
+import racingcar.domain.CarFactory
 import racingcar.domain.RaceManager
 import racingcar.ui.InputView
 
@@ -13,7 +14,7 @@ class RacingCarGame {
         val carCount = InputView.inputCarCount()
         val moveCount = InputView.inputMoveCount()
 
-        val raceManager = RaceManager(carCount, moveCount)
+        val raceManager = RaceManager(moveCount, CarFactory.generateCars(carCount))
 
         raceManager.startRacing()
     }
