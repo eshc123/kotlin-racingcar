@@ -19,7 +19,7 @@ class RaceManager(
 
     private fun getMovedCars(cars: List<Car>): List<Car> =
         cars.map {
-            it.moveIfPossible(RaceConditionChecker.isAdvancePossible())
+            it.moveIfPossible(RaceConditionChecker.isAdvancePossible(RandomNumberGenerator.generate()))
         }
 
     companion object {
