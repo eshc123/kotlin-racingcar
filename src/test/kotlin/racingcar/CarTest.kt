@@ -1,15 +1,24 @@
 package racingcar
 
 import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import racingcar.domain.Car
 
 class CarTest {
     @Test
+    fun `Car의 이름은 5자를 초과할 수 없다`() {
+        assertThatThrownBy {
+            Car(name = "자동차이름1", position = 1)
+        }.isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessage("자동차 이름은 5자를 초과할 수 없습니다.")
+    }
+
+    @Test
     fun `Car는 이름과 위치를 가진다`() {
-        val car = Car(name = "test", position = 1)
-        assertThat(car.name).isEqualTo("test")
+        val car = Car(name = "자동차이름", position = 1)
+        assertThat(car.name).isEqualTo("자동차이름")
         assertThat(car.position).isEqualTo(1)
     }
 
