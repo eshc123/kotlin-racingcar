@@ -1,6 +1,7 @@
 package racingcar.domain
 
 data class Car(
+    val name: String,
     val position: Int = INITIAL_POSITION,
 ) {
     fun moveIfPossible(isAdvancePossible: Boolean): Car =
