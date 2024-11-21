@@ -16,6 +16,14 @@ class CarTest {
     }
 
     @Test
+    fun `Car 이름이 5자를 초과하면 IllegalArgumentException이 발생한다`() {
+        assertThatThrownBy {
+            Car(name = "crongg")
+        }.isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessage("자동차 이름은 5자를 초과할 수 없습니다.")
+    }
+
+    @Test
     fun `Car는 이름과 위치를 가진다`() {
         val car = Car(name = "자동차이름", position = 1)
         assertThat(car.name).isEqualTo("자동차이름")
