@@ -15,4 +15,8 @@ object ResultView {
         }
         println()
     }
+
+    fun printRacingChampion(champions: List<String>) {
+        println("${champions.joinToString()}가 최종 우승했습니다.")
+    }
 }

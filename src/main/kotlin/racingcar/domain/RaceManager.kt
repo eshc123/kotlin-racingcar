@@ -1,6 +1,7 @@
 package racingcar.domain
 
 import racingcar.ui.ResultView
+import racingcar.ui.ResultView.printRacingChampion
 import racingcar.ui.ResultView.printResultTitle
 
 class RaceManager(
@@ -14,6 +15,13 @@ class RaceManager(
             cars = getMovedCars(cars)
             ResultView.printCarResults(cars)
         }
+        printRacingChampion(getRacingChampions())
+    }
+
+    private fun getRacingChampions(): List<String> {
+        val maxPosition = cars.maxByOrNull { it.position }?.position
+
+        return cars.filter { it.position == maxPosition }.map { it.name }
     }
 
     private fun getMovedCars(cars: List<Car>): List<Car> =
