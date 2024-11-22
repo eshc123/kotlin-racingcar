@@ -19,6 +19,7 @@ class RacingCarGame {
 
         ResultView.printResultTitle()
         raceManager.startRacing()
+        ResultView.printRaceHistories(raceManager.raceHistories)
         ResultView.printRacingChampion(raceManager.getRacingChampions())
     }
 }

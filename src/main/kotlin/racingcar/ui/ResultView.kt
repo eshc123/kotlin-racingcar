@@ -1,6 +1,6 @@
 package racingcar.ui
 
-import racingcar.domain.Car
+import racingcar.domain.RaceHistory
 
 object ResultView {
     private const val CAR_POSITION_STEP = "-"
@@ -9,8 +9,14 @@ object ResultView {
         println("실행 결과")
     }
 
-    fun printCarResults(carResult: List<Car>) {
-        carResult.forEach {
+    fun printRaceHistories(raceHistories: List<RaceHistory>) {
+        raceHistories.forEach {
+            printRaceHistory(it)
+        }
+    }
+
+    private fun printRaceHistory(raceHistory: RaceHistory) {
+        raceHistory.cars.forEach {
             println("${it.name} : ${CAR_POSITION_STEP.repeat(it.position) }")
         }
         println()

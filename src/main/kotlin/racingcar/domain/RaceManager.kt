@@ -1,15 +1,17 @@
 package racingcar.domain
 
-import racingcar.ui.ResultView
-
 class RaceManager(
     private val moveCount: Int,
     private var cars: List<Car>,
 ) {
+    var raceHistories: List<RaceHistory> = emptyList()
+        private set
+
     fun startRacing() {
         repeat(moveCount) {
             cars = getMovedCars(cars)
-            ResultView.printCarResults(cars)
+
+            raceHistories = raceHistories + RaceHistory(cars)
         }
     }
 
