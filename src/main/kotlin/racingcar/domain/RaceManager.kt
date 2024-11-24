@@ -17,12 +17,6 @@ class RaceManager(
         }
     }
 
-    fun getRacingChampions(): List<String> {
-        val maxPosition = cars.maxByOrNull { it.position }?.position
-
-        return cars.filter { it.position == maxPosition }.map { it.name }
-    }
-
     private fun getMovedCars(cars: List<Car>): List<Car> =
         cars.map {
             it.moveIfPossible(RaceConditionChecker.isAdvancePossible(RANDOM_NUMBER_RANGE.random()))
