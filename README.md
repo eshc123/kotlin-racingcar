@@ -79,3 +79,16 @@
 3. 함수(또는 메소드)의 길이가 15라인을 넘어가지 않도록 구현한다.
 4. 기능을 구현하기 전에 README.md 파일에 구현할 기능 목록을 정리해 추가한다.
 5. git의 commit 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위로 추가한다.
+
+### Feedback - 1
+1. startRacing 진행 후, 각각의 car의 position이 얼마인지를 검증하는 테스트 추가
+2. RaceConditionChecker - 랜덤한 숫자를 뽑아내는 로직 포함
+3. Car의 최대 이름 길이 상수명 수정
+4. Car의 예외 메시지의 최대 이름 제한 길이도 상수로 주입
+5. CarFactory - generateCars 개선
+6. getRacingChampions 개선
+   1. 객체에게 메세지 보내기
+   2. 체이닝 개선
+   3. getRacingChampions 네이밍 수정
+   4. RaceHistory로 위임
+7. startRacing의 raceHistories 개선
