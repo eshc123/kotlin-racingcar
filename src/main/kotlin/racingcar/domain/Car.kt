@@ -5,7 +5,7 @@ data class Car(
     val position: Int = INITIAL_POSITION,
 ) {
     init {
-        require(name.length <= MINIMUM_NAME_LENGTH) { "자동차 이름은 5자를 초과할 수 없습니다." }
+        require(name.length <= MAXIMUM_NAME_LENGTH) { "자동차 이름은 5자를 초과할 수 없습니다." }
     }
 
     fun moveIfPossible(isAdvancePossible: Boolean): Car =
@@ -17,6 +17,6 @@ data class Car(
 
     companion object {
         private const val INITIAL_POSITION = 0
-        private const val MINIMUM_NAME_LENGTH = 5
+        private const val MAXIMUM_NAME_LENGTH = 5
     }
 }
