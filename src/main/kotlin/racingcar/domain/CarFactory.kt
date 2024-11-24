@@ -1,5 +1,5 @@
 package racingcar.domain
 
 object CarFactory {
-    fun generateCars(carNames: List<String>) = List(carNames.size) { Car(carNames[it]) }
+    fun generateCars(carNames: List<String>) = carNames.map { Car(it) }
 }
