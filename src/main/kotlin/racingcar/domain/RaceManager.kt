@@ -6,15 +6,13 @@ class RaceManager(
     private val moveCount: Int,
     private var cars: List<Car>,
 ) {
-    var raceHistories: List<RaceHistory> = emptyList()
-        private set
-
-    fun startRacing() {
+    fun startRacing(): List<RaceHistory> {
+        var raceHistories: List<RaceHistory> = emptyList()
         repeat(moveCount) {
             cars = getMovedCars(cars)
-
             raceHistories = raceHistories + RaceHistory(cars)
         }
+        return raceHistories
     }
 
     private fun getMovedCars(cars: List<Car>): List<Car> =

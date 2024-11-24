@@ -15,11 +15,9 @@ class RacingCarGame {
         val carNames = InputView.inputCarNames()
         val moveCount = InputView.inputMoveCount()
         val raceManager = RaceManager(moveCount, CarFactory.generateCars(carNames))
-
         ResultView.printResultTitle()
-        raceManager.startRacing()
 
-        val raceHistories = raceManager.raceHistories
+        val raceHistories = raceManager.startRacing()
         ResultView.printRaceHistories(raceHistories)
         ResultView.printRacingChampion(raceHistories.last().findRacingChampions())
     }

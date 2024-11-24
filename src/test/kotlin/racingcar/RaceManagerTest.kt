@@ -11,10 +11,10 @@ class RaceManagerTest {
         val cars = CarFactory.generateCars(listOf("pobi", "crong", "honux"))
         val raceManager = RaceManager(moveCount = 5, cars = cars)
 
-        raceManager.startRacing()
-        val finalRaceHistory = raceManager.raceHistories.last()
+        val raceHistories = raceManager.startRacing()
+        val finalRaceHistory = raceHistories.last()
         val maxPosition = finalRaceHistory.cars.maxByOrNull { it.position }?.position
         val champions = finalRaceHistory.cars.filter { it.position == maxPosition }.map { it.name }
-        raceManager.getRacingChampions() shouldBe champions
+        finalRaceHistory.findRacingChampions() shouldBe champions
     }
 }
