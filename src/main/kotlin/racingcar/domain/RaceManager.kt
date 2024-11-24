@@ -1,5 +1,7 @@
 package racingcar.domain
 
+import racingcar.domain.RaceConditionChecker.RANDOM_NUMBER_RANGE
+
 class RaceManager(
     private val moveCount: Int,
     private var cars: List<Car>,
@@ -23,6 +25,6 @@ class RaceManager(
 
     private fun getMovedCars(cars: List<Car>): List<Car> =
         cars.map {
-            it.moveIfPossible(RaceConditionChecker.isAdvancePossible(RandomNumberGenerator.generate()))
+            it.moveIfPossible(RaceConditionChecker.isAdvancePossible(RANDOM_NUMBER_RANGE.random()))
         }
 }
