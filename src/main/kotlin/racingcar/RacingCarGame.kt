@@ -1,7 +1,9 @@
 package racingcar
 
-import racingcar.core.RaceManager
+import racingcar.domain.CarFactory
+import racingcar.domain.RaceManager
 import racingcar.ui.InputView
+import racingcar.ui.ResultView
 
 fun main() {
     val racingCarGame = RacingCarGame()
@@ -10,11 +12,13 @@ fun main() {
 
 class RacingCarGame {
     fun run() {
-        val carCount = InputView.inputCarCount()
+        val carNames = InputView.inputCarNames()
         val moveCount = InputView.inputMoveCount()
+        val raceManager = RaceManager(moveCount, CarFactory.generateCars(carNames))
+        ResultView.printResultTitle()
 
-        val raceManager = RaceManager(carCount, moveCount)
-
-        raceManager.startRacing()
+        val raceHistories = raceManager.startRacing()
+        ResultView.printRaceHistories(raceHistories)
+        ResultView.printRacingChampion(raceHistories.last().findRacingChampions())
     }
 }

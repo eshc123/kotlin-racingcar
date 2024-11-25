@@ -51,3 +51,44 @@
 10. Car의 updateCarPosition 네이밍 변경
 11. CarTest - 전진하지 않는 케이스의 테스트 코드 추가
 12. RaceManager 테스트하기 쉬운 코드 고민 및 수정
+
+## Feedback - 2
+1. model 패키지, core 패키지 개선
+2. RANDOM_NUMBER_RANGE 접근 제한자 수정
+3. isAdvancePossible 에 대한 테스트 코드 작성
+4. startRacing 테스트 코드 작성
+5. getMovedCars 개선 혹은 삭제
+6. RaceManager 개선
+   1. carCount 삭제
+7. Car 의 자동자들 생성 역할 다른 객체로 위임
+
+
+## step-4
+
+### 기능 요구사항
+1. 각 자동차에 이름을 부여할 수 있다.
+2. 자동차 이름은 5자를 초과할 수 없다.
+3. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
+4. 자동차 이름은 쉼표(,)를 기준으로 구분한다.
+5. 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다.
+6. 우승자는 한 명 이상일 수 있다.
+
+### 프로그래밍 요구사항
+1. 모든 로직에 단위 테스트를 구현한다.
+2. indent(인덴트, 들여쓰기) depth를 2를 넘지 않도록 구현한다. 1까지만 허용한다.
+3. 함수(또는 메소드)의 길이가 15라인을 넘어가지 않도록 구현한다.
+4. 기능을 구현하기 전에 README.md 파일에 구현할 기능 목록을 정리해 추가한다.
+5. git의 commit 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위로 추가한다.
+
+### Feedback - 1
+1. startRacing 진행 후, 각각의 car의 position이 얼마인지를 검증하는 테스트 추가
+2. RaceConditionChecker - 랜덤한 숫자를 뽑아내는 로직 포함
+3. Car의 최대 이름 길이 상수명 수정
+4. Car의 예외 메시지의 최대 이름 제한 길이도 상수로 주입
+5. CarFactory - generateCars 개선
+6. getRacingChampions 개선
+   1. 객체에게 메세지 보내기
+   2. 체이닝 개선
+   3. getRacingChampions 네이밍 수정
+   4. RaceHistory로 위임
+7. startRacing의 raceHistories 개선

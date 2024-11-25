@@ -1,13 +1,22 @@
 package racingcar
 
-import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.Test
-import racingcar.core.RaceConditionChecker
+import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.ValueSource
+import racingcar.domain.RaceConditionChecker
 
 class RaceConditionCheckerTest {
-    @Test
-    fun `0에서 9 사이의 무작위 숫자를 구할 수 있다`() {
-        val actual = RaceConditionChecker.RANDOM_NUMBER_RANGE.random()
-        assertTrue(actual in 0..9)
+    @ParameterizedTest
+    @ValueSource(ints = [0, 1, 2, 3])
+    fun `0에서 3 사이의 숫자인 경우 전진할 수 없는 조건이다`(number: Int) {
+        val actual: Boolean = RaceConditionChecker.isAdvancePossible(number)
+        assertThat(actual).isEqualTo(false)
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = [4, 5, 6, 7, 8, 9])
+    fun `4에서 9 사이의 숫자인 경우 전진할 수 없는 조건이다`(number: Int) {
+        val actual: Boolean = RaceConditionChecker.isAdvancePossible(number)
+        assertThat(actual).isEqualTo(true)
     }
 }
