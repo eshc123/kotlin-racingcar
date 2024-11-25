@@ -1,9 +1,11 @@
 package racingcar
 
 import io.kotest.matchers.shouldBe
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import racingcar.domain.CarFactory
 import racingcar.domain.RaceManager
+import racingcar.fake.FakeRaceConditionChecker
 
 class RaceManagerTest {
     @Test
@@ -11,10 +13,20 @@ class RaceManagerTest {
         val cars = CarFactory.generateCars(listOf("pobi", "crong", "honux"))
         val raceManager = RaceManager(moveCount = 5, cars = cars)
 
-        val raceHistories = raceManager.startRacing()
-        val finalRaceHistory = raceHistories.last()
-        val maxPosition = finalRaceHistory.cars.maxByOrNull { it.position }?.position
-        val champions = finalRaceHistory.cars.filter { it.position == maxPosition }.map { it.name }
-        finalRaceHistory.findRacingChampions() shouldBe champions
+        val raceResult = raceManager.startRacing()
+
+        raceResult.findRacingChampions() shouldBe raceResult.raceHistories.last().findMaxPositionCarNames()
+    }
+
+    @Test
+    fun `자동차 경주 후 자동차의 위치를 알 수 있다`() {
+        val cars = CarFactory.generateCars(listOf("pobi", "crong", "honux"))
+        val testChecker = FakeRaceConditionChecker(5)
+        val raceManager = RaceManager(3, cars, testChecker)
+
+        val result = raceManager.startRacing()
+        result.raceHistories.last().cars.forEach {
+            assertThat(it.position == 3)
+        }
     }
 }

@@ -1,10 +1,12 @@
 package racingcar.domain
 
-import racingcar.domain.RaceConditionChecker.RANDOM_NUMBER_RANGE
+import racingcar.domain.checker.RaceConditionChecker
+import racingcar.domain.checker.RandomRaceConditionChecker
 
 class RaceManager(
     private val moveCount: Int,
     private var cars: List<Car>,
+    private val raceConditionChecker: RaceConditionChecker = RandomRaceConditionChecker(),
 ) {
     fun startRacing(): RaceResult {
         var raceHistories: List<RaceHistory> = emptyList()
@@ -17,6 +19,6 @@ class RaceManager(
 
     private fun getMovedCars(cars: List<Car>): List<Car> =
         cars.map {
-            it.moveIfPossible(RaceConditionChecker.isAdvancePossible(RANDOM_NUMBER_RANGE.random()))
+            it.moveIfPossible(raceConditionChecker.isAdvancePossible())
         }
 }
