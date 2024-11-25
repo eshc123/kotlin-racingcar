@@ -2,8 +2,8 @@ package racingcar
 
 import racingcar.domain.CarFactory
 import racingcar.domain.RaceManager
-import racingcar.ui.InputView
-import racingcar.ui.ResultView
+import racingcar.view.InputView
+import racingcar.view.ResultView
 
 fun main() {
     val racingCarGame = RacingCarGame()
