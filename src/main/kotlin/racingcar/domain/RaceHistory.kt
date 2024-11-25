@@ -3,7 +3,7 @@ package racingcar.domain
 data class RaceHistory(
     val cars: List<Car>,
 ) {
-    fun findRacingChampions(): List<String> {
+    fun findMaxPositionCarNames(): List<String> {
         val maxPositionCar = findMaxPositionCar()
 
         return findSamePositionCar(maxPositionCar)
