@@ -20,14 +20,26 @@ class RaceManagerTest {
     }
 
     @Test
-    fun `자동차 경주 후 자동차의 위치를 알 수 있다`() {
+    fun `자동차 경주에서 전진하는 조건인 경우 자동차는 전진할 수 있다`() {
         val cars = CarFactory.generateCars(listOf("pobi", "crong", "honux"))
         val testChecker = FakeRaceConditionChecker(5)
-        val raceManager = RaceManager(3, cars)
+        val raceManager = RaceManager(5, cars)
 
         val result = raceManager.startRacing(testChecker)
         result.raceHistories.last().cars.forEach {
-            assertThat(it.position == 3)
+            assertThat(it.position == 5)
+        }
+    }
+
+    @Test
+    fun `자동차 경주에서 정지하는 조건인 경우 자동차는 전진하지 않는다`() {
+        val cars = CarFactory.generateCars(listOf("pobi", "crong", "honux"))
+        val testChecker = FakeRaceConditionChecker(0)
+        val raceManager = RaceManager(5, cars)
+
+        val result = raceManager.startRacing(testChecker)
+        result.raceHistories.last().cars.forEach {
+            assertThat(it.position == 0)
         }
     }
 }

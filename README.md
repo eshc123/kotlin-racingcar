@@ -108,4 +108,4 @@
    - startRacing 에서 주입
 2. getMovedCars 네이밍 수정
 3. RandomRaceConditionChecker - RANDOM_NUMBER_RANGE private 으로 수정
-4RaceManagerTest 의 startRacing - Fake 구현체 이용해서 정지하는 케이스 작성
+4. RaceManagerTest 의 startRacing - Fake 구현체 이용해서 정지하는 케이스 작성
