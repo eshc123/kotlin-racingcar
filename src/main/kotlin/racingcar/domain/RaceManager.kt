@@ -9,13 +9,13 @@ class RaceManager(
     fun startRacing(raceConditionChecker: RaceConditionChecker): RaceResult {
         var raceHistories: List<RaceHistory> = emptyList()
         repeat(moveCount) {
-            cars = getMovedCars(cars, raceConditionChecker)
+            cars = raceCars(cars, raceConditionChecker)
             raceHistories = raceHistories + RaceHistory(cars)
         }
         return RaceResult(raceHistories)
     }
 
-    private fun getMovedCars(
+    private fun raceCars(
         cars: List<Car>,
         raceConditionChecker: RaceConditionChecker,
     ): List<Car> =
