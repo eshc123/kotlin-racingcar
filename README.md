@@ -102,3 +102,10 @@
 1. 패키지명 수정
 2. 의존성 체크
 3. 테스트 가능한 부분과 테스트 어려운 부분을 분리
+
+### Feedback - 1
+1. RaceManager - raceConditionChecker 개선
+   - startRacing 에서 주입
+2. getMovedCars 네이밍 수정
+3. RandomRaceConditionChecker private 으로 수정
+5. RaceManagerTest 의 startRacing - Fake 구현체 이용해서 정지하는 케이스 작성
