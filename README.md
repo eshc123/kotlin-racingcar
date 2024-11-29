@@ -109,3 +109,6 @@
 2. getMovedCars 네이밍 수정
 3. RandomRaceConditionChecker - RANDOM_NUMBER_RANGE private 으로 수정
 4. RaceManagerTest 의 startRacing - Fake 구현체 이용해서 정지하는 케이스 작성
+
+### Feedback - 2
+1. RaceManagerTest - findRacingChampions 테스트 수정

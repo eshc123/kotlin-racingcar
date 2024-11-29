@@ -5,7 +5,6 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import racingcar.domain.CarFactory
 import racingcar.domain.RaceManager
-import racingcar.domain.checker.RandomRaceConditionChecker
 import racingcar.fake.FakeRaceConditionChecker
 
 class RaceManagerTest {
@@ -14,9 +13,9 @@ class RaceManagerTest {
         val cars = CarFactory.generateCars(listOf("pobi", "crong", "honux"))
         val raceManager = RaceManager(moveCount = 5, cars = cars)
 
-        val raceResult = raceManager.startRacing(RandomRaceConditionChecker())
+        val raceResult = raceManager.startRacing(FakeRaceConditionChecker(5))
 
-        raceResult.findRacingChampions() shouldBe raceResult.raceHistories.last().findMaxPositionCarNames()
+        raceResult.findRacingChampions() shouldBe listOf("pobi", "crong", "honux")
     }
 
     @Test
